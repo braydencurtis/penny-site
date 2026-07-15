@@ -67,7 +67,7 @@ Sections, in order:
    spell out "joiners never pay."
 6. A short FAQ teaser that links to the Support page.
 7. Footer: Penny, the tagline, links to Support and Privacy, and contact
-   penny@pennytracker.pet.
+   support@pennytracker.pet.
 
 ## Page 2 — Privacy Policy (lay out this REAL content; do not invent legal terms)
 Title "Privacy Policy," last updated July 14, 2026. Warm but readable long-form layout
@@ -99,10 +99,10 @@ Title "Privacy Policy," last updated July 14, 2026. Warm but readable long-form 
 - Children: not directed to under-13; we don't knowingly collect their data.
 - Your rights: access/correct/export/delete; most doable in-app or by email.
 - Changes: we update the date and, where appropriate, notify in-app.
-- Contact: penny@pennytracker.pet.
+- Contact: support@pennytracker.pet.
 
 ## Page 3 — Support / FAQ (real content)
-Title "Support." A friendly contact card with penny@pennytracker.pet (note: including device
+Title "Support." A friendly contact card with support@pennytracker.pet (note: including device
 model + iOS version speeds up help). Then an FAQ (collapsible sections) covering: how
 households work; what's free vs. the Penny Household plan; how to invite someone (requires an
 active plan); what happens if a subscription lapses (Apple grace → 14-day in-app grace →
