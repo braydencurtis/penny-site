@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penny — Pet care, together.</title>
+<meta name="description" content="Penny is a shared pet-care app for households: track meals, meds, and litter together so no dose is missed and no one double-feeds the dog.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&amp;family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="penny.css">
+<style>
+.hero{position:relative;overflow:hidden;padding:70px 0 40px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 520px at 80% -10%,var(--tint) 0%,transparent 65%),radial-gradient(700px 500px at -10% 30%,var(--tint) 0%,transparent 60%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(42px,6.5vw,64px);font-weight:800;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--copper)}
+.hero .sub{font-size:20px;color:var(--soft);max-width:44ch;margin-bottom:26px}
+.hero .cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.badge-appstore{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);border-radius:14px;padding:10px 20px 10px 16px;line-height:1.15}
+.badge-appstore:hover{text-decoration:none;color:var(--cream);transform:translateY(-1px)}
+.badge-appstore svg{width:26px;height:26px;fill:var(--cream)}
+.badge-appstore .t{display:flex;flex-direction:column;text-align:left}
+.badge-appstore .t small{font-size:11px;font-weight:600;opacity:.85}
+.badge-appstore .t b{font-family:var(--font-display);font-size:18px;font-weight:700}
+.hero-note{font-size:14.5px;color:var(--soft);font-weight:700;margin-top:14px}
+/* phone mock */
+.phone{width:300px;margin:0 auto;background:var(--ink);border-radius:44px;padding:10px;box-shadow:var(--shadow)}
+.phone .screen{background:var(--cream);border-radius:36px;padding:20px 14px 18px;border:1px solid var(--line)}
+.phone .stat{display:flex;justify-content:space-between;font-size:11px;font-weight:800;padding:0 8px 10px;color:var(--ink)}
+.phone .greet{font-family:var(--font-display);font-weight:800;font-size:21px;padding:0 6px}
+.phone .date{font-size:12.5px;color:var(--soft);font-weight:700;padding:0 6px;margin-bottom:12px}
+.task{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin-bottom:8px;box-shadow:var(--shadow-sm)}
+.task .glyph{width:34px;height:34px;border-radius:11px}
+.task .glyph svg{width:19px;height:19px}
+.task .tt{flex:1;min-width:0}
+.task .tt b{display:block;font-family:var(--font-display);font-size:14px;font-weight:700;line-height:1.2}
+.task .tt span{font-size:11.5px;color:var(--soft);font-weight:700}
+.task .ck{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:grid;place-items:center}
+.task .ck.done{background:var(--good)}
+.task .ck.done svg{width:14px;height:14px;stroke:#FFF;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.task .ck.todo{border:2px solid var(--line)}
+.task.dim{opacity:.86}
+.phone .logged{font-size:11px;font-weight:800;color:var(--good);padding:2px 6px 0}
+/* problem */
+.problem{padding:80px 0 10px;text-align:center}
+.problem .bubble-row{display:flex;flex-direction:column;gap:14px;max-width:520px;margin:30px auto 26px}
+.bubble{padding:14px 20px;border-radius:22px;font-weight:700;font-size:17px;box-shadow:var(--shadow-sm);max-width:85%}
+.bubble.left{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:8px}
+.bubble.right{align-self:flex-end;background:var(--copper);color:#FFF8EF;border-bottom-right-radius:8px}
+.problem h2{font-size:clamp(28px,4.5vw,40px)}
+.problem .sub{color:var(--soft);font-size:19px;max-width:52ch;margin:0 auto}
+/* steps */
+.steps{padding:90px 0 10px}
+.steps h2{font-size:clamp(28px,4.5vw,40px);text-align:center}
+.steps .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.step{padding:28px 26px;position:relative}
+.step .num{font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--copper-ink);background:var(--tint);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;margin-bottom:16px}
+.step h3{font-size:21px}
+.step p{color:var(--soft);font-size:16px;margin:0}
+/* features */
+.features{padding:90px 0 10px}
+.features h2{font-size:clamp(28px,4.5vw,40px);text-align:center}
+.features .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.feat{padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+.feat h3{font-size:20px;margin:0}
+.feat p{color:var(--soft);font-size:15.5px;margin:0}
+/* pricing */
+.pricing{padding:90px 0 10px}
+.pricing h2{font-size:clamp(28px,4.5vw,40px);text-align:center}
+.pricing .sub{text-align:center;color:var(--soft);font-size:19px;max-width:56ch;margin:0 auto}
+.plans{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;margin-top:40px;align-items:stretch;max-width:880px;margin-left:auto;margin-right:auto}
+.plan{padding:32px 30px;display:flex;flex-direction:column}
+.plan.hero-plan{border:2px solid var(--copper);box-shadow:var(--shadow);position:relative}
+.plan .flag{position:absolute;top:-14px;left:28px;background:var(--copper);color:#FFF8EF;font-family:var(--font-display);font-weight:700;font-size:13px;padding:4px 14px;border-radius:999px}
+.plan h3{font-size:24px;margin-bottom:4px}
+.plan .who{color:var(--soft);font-weight:700;font-size:15px;margin-bottom:18px}
+.plan .price{font-family:var(--font-display);font-weight:800;font-size:38px;line-height:1}
+.plan .price small{font-size:16px;font-weight:700;color:var(--soft)}
+.plan .intro{margin-top:8px;font-weight:800;font-size:14.5px;color:var(--good)}
+.plan .alt{margin-top:6px;font-weight:700;font-size:14.5px;color:var(--soft)}
+.plan ul{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:11px}
+.plan li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;font-weight:600}
+.plan li svg{width:19px;height:19px;flex-shrink:0;margin-top:3px;stroke:var(--good);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.joiners{max-width:880px;margin:22px auto 0;background:var(--tint);border-radius:20px;padding:18px 24px;display:flex;gap:14px;align-items:center;font-weight:700;color:var(--copper-ink)}
+.joiners svg{width:26px;height:26px;flex-shrink:0;fill:var(--copper)}
+.joiners p{margin:0;font-size:16px}
+/* faq teaser */
+.faqteaser{padding:90px 0 10px;max-width:760px;margin:0 auto}
+.faqteaser h2{font-size:clamp(28px,4.5vw,40px);text-align:center;margin-bottom:32px}
+.faqteaser .more{text-align:center;margin-top:26px;font-weight:700}
+/* closing cta */
+.closing{padding:100px 0 20px;text-align:center}
+.closing .inner{background:linear-gradient(135deg,var(--copper),var(--deep));border-radius:32px;padding:64px 30px;color:#FFF8EF;box-shadow:var(--shadow)}
+@media (prefers-color-scheme:dark){.closing .inner{background:linear-gradient(135deg,#A85F28,#8A4A1E)}}
+.closing h2{font-size:clamp(30px,5vw,44px);color:#FFF8EF}
+.closing p{color:#FBEBDD;font-size:19px;max-width:46ch;margin:0 auto 28px}
+.closing .badge-appstore{background:#FFF8EF;color:var(--copper-ink)}
+.closing .badge-appstore svg{fill:var(--copper-ink)}
+.closing .badge-appstore:hover{color:var(--copper-ink)}
+@media (prefers-color-scheme:dark){.closing .badge-appstore{color:#8A4A1E}.closing .badge-appstore svg{fill:#8A4A1E}.closing .badge-appstore:hover{color:#8A4A1E}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:44px;text-align:center}.hero .sub{margin-left:auto;margin-right:auto}.hero .cta-row{justify-content:center}.steps .grid,.features .grid{grid-template-columns:1fr}.plans{grid-template-columns:1fr}}
+@media (min-width:861px) and (max-width:1024px){.features .grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+<a class="brand" href="./"><span class="mark"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="15.5" rx="5" ry="4.2"></ellipse><circle cx="5.6" cy="10.7" r="2.1"></circle><circle cx="9.4" cy="7.1" r="2.1"></circle><circle cx="14.6" cy="7.1" r="2.1"></circle><circle cx="18.4" cy="10.7" r="2.1"></circle></svg></span>Penny</a>
+<nav class="site-nav"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="support/">Support</a><a class="btn btn-soft" style="padding:9px 18px;font-size:15px" href="#download">Get the app</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div>
+<h1>Pet care, <em>together.</em></h1>
+<p class="sub">One shared app for your whole household to track meals, meds, and litter — so no dose is missed, and no one double-feeds the dog.</p>
+<div class="cta-row" id="download">
+<a class="badge-appstore" href="#"><svg viewBox="0 0 24 24"><path d="M17.05 12.54c-.03-2.5 2.04-3.7 2.13-3.76-1.16-1.7-2.97-1.93-3.61-1.96-1.54-.16-3 .9-3.78.9-.78 0-1.98-.88-3.26-.86-1.68.03-3.22.98-4.08 2.48-1.74 3.02-.44 7.49 1.25 9.94.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.72-.81 3.23-.81 1.51 0 1.93.81 3.25.79 1.35-.03 2.2-1.22 3.02-2.43.95-1.39 1.34-2.74 1.36-2.81-.03-.01-2.61-1-2.63-3.98zM14.56 4.9c.69-.83 1.15-1.99 1.02-3.15-.99.04-2.18.66-2.89 1.49-.63.73-1.19 1.91-1.04 3.04 1.1.09 2.23-.56 2.91-1.38z"></path></svg><span class="t"><small>Download on the</small><b>App Store</b></span></a>
+<a class="btn btn-soft" href="#how">See how it works</a>
+</div>
+<p class="hero-note">Free for solo caretakers — no trial clock, no locked basics.</p>
+</div>
+<div class="phone" aria-hidden="true"><div class="screen">
+<div class="stat"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+<div class="greet">Good morning &#128075;</div>
+<div class="date">Tuesday, July 14 &middot; 2 of 4 done</div>
+<div class="task dim"><span class="glyph" style="background:color-mix(in srgb,var(--meals) 16%,transparent)"><svg viewBox="0 0 24 24" fill="var(--meals)"><path d="M4 11h16a1 1 0 0 1 1 1 8 8 0 0 1-5 6.4V20a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-1.6A8 8 0 0 1 3 12a1 1 0 0 1 1-1Z"></path><circle cx="9" cy="7" r="1.6"></circle><circle cx="14.5" cy="5.5" r="1.6"></circle></svg></span><span class="tt"><b>Breakfast — Penny</b><span>Logged by Sam &middot; 7:12 AM</span></span><span class="ck done"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg></span></div>
+<div class="task dim"><span class="glyph" style="background:color-mix(in srgb,var(--meds) 14%,transparent)"><svg viewBox="0 0 24 24" fill="var(--meds)"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"></rect></svg></span><span class="tt"><b>Heart pill — Penny</b><span>Logged by You &middot; 8:00 AM</span></span><span class="ck done"><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg></span></div>
+<div class="task"><span class="glyph" style="background:color-mix(in srgb,var(--clean) 15%,transparent)"><svg viewBox="0 0 24 24" fill="var(--clean)"><path d="M5 14h14l-1.2 5a2 2 0 0 1-2 1.6H8.2a2 2 0 0 1-2-1.6L5 14Z"></path><path d="M12 3l4.5 9h-9L12 3Z"></path></svg></span><span class="tt"><b>Litter scoop</b><span>Due by 6:00 PM</span></span><span class="ck todo"></span></div>
+<div class="task"><span class="glyph" style="background:color-mix(in srgb,var(--meals) 16%,transparent)"><svg viewBox="0 0 24 24" fill="var(--meals)"><path d="M4 11h16a1 1 0 0 1 1 1 8 8 0 0 1-5 6.4V20a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-1.6A8 8 0 0 1 3 12a1 1 0 0 1 1-1Z"></path><circle cx="9" cy="7" r="1.6"></circle><circle cx="14.5" cy="5.5" r="1.6"></circle></svg></span><span class="tt"><b>Dinner — Penny</b><span>Reminds at 6:30 PM</span></span><span class="ck todo"></span></div>
+<div class="logged">&#10003; Nobody double-feeds Penny today</div>
+</div></div>
+</div></section>
+
+<section class="problem"><div class="wrap">
+<span class="kicker">The 7 AM mystery</span>
+<h2>&ldquo;Wait&hellip; did someone already feed her?&rdquo;</h2>
+<div class="bubble-row">
+<div class="bubble left">Did you give Penny her heart pill this morning?</div>
+<div class="bubble right">I thought you did??</div>
+<div class="bubble left">&hellip;so that&rsquo;s either zero pills or two pills &#128584;</div>
+</div>
+<p class="sub">Group chats forget. Sticky notes fall off the fridge. When care is shared, everyone needs the same answer — Penny is that answer, in everyone&rsquo;s pocket.</p>
+</div></section>
+
+<section class="steps" id="how"><div class="wrap">
+<h2>How it works</h2>
+<div class="grid">
+<div class="card step"><span class="num">1</span><h3>Create your household</h3><p>One person sets it up and becomes the owner. Takes about a minute.</p></div>
+<div class="card step"><span class="num">2</span><h3>Add pets &amp; routines</h3><p>Meals, meds, litter — set what happens and when, for every pet.</p></div>
+<div class="card step"><span class="num">3</span><h3>Everyone logs, Penny reminds</h3><p>Invite the family. Anyone can log care, and reminders know your household&rsquo;s timezone.</p></div>
+</div>
+</div></section>
+
+<section class="features" id="features"><div class="wrap">
+<h2>Everything a shared pet needs</h2>
+<div class="grid">
+<div class="card feat"><span class="glyph" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="var(--copper)"><circle cx="9" cy="8" r="3.2"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0Z"></path><circle cx="16.5" cy="8.6" r="2.6"></circle><path d="M14.8 13.6a4.8 4.8 0 0 1 5.7 5.4h-4.6a6.9 6.9 0 0 0-1.1-5.4Z"></path></svg></span><h3>One shared household</h3><p>Everyone sees the same pets, the same routines, the same &ldquo;done&rdquo; — no more group-chat archaeology.</p></div>
+<div class="card feat"><span class="glyph" style="background:color-mix(in srgb,var(--meals) 15%,transparent)"><svg viewBox="0 0 24 24" fill="var(--meals)"><path d="M4 11h16a1 1 0 0 1 1 1 8 8 0 0 1-5 6.4V20a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-1.6A8 8 0 0 1 3 12a1 1 0 0 1 1-1Z"></path><circle cx="9" cy="7" r="1.6"></circle><circle cx="14.5" cy="5.5" r="1.6"></circle></svg></span><h3>Meals, meds &amp; litter</h3><p>Track feeding, medications with dosage, and cleanup — every routine your pets actually have.</p></div>
+<div class="card feat"><span class="glyph" style="background:color-mix(in srgb,var(--meds) 13%,transparent)"><svg viewBox="0 0 24 24" fill="var(--meds)"><path d="M6 9a6 6 0 0 1 12 0c0 5 1.5 6 1.5 6H4.5S6 14 6 9Z"></path><path d="M10 19a2 2 0 0 0 4 0Z"></path></svg></span><h3>Smart reminders</h3><p>Timezone-aware nudges that fire when a dose is actually due — not at 3 AM because someone traveled.</p></div>
+<div class="card feat"><span class="glyph" style="background:color-mix(in srgb,var(--clean) 14%,transparent)"><svg viewBox="0 0 24 24" fill="var(--clean)"><path d="M7 18a4.5 4.5 0 0 1-.7-8.95A5.5 5.5 0 0 1 17 8a4 4 0 0 1 .8 7.9L17 16H7Z"></path><path d="M9 18.5h6l-1 2.5h-4l-1-2.5Z"></path></svg></span><h3>Offline-safe logging</h3><p>No signal at the cabin? Log anyway. Everything syncs when you&rsquo;re back — a lost dose log is unacceptable.</p></div>
+<div class="card feat"><span class="glyph" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="var(--copper)"><rect x="4" y="4" width="16" height="16" rx="4"></rect><rect x="7.5" y="8" width="9" height="1.8" rx=".9" fill="var(--card)"></rect><rect x="7.5" y="11.5" width="9" height="1.8" rx=".9" fill="var(--card)"></rect><rect x="7.5" y="15" width="6" height="1.8" rx=".9" fill="var(--card)"></rect></svg></span><h3>Shared history &amp; activity</h3><p>A full care log — who did what, and when. Handy for vet visits and settling debates.</p></div>
+<div class="card feat"><span class="glyph" style="background:color-mix(in srgb,var(--good) 14%,transparent)"><svg viewBox="0 0 24 24" fill="var(--good)"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20a7 7 0 0 1 14 0Z"></path><path d="M17.2 3.4l1 2 2.2.3-1.6 1.6.4 2.2-2-1-2 1 .4-2.2-1.6-1.6 2.2-.3 1-2Z"></path></svg></span><h3>Roles for the family</h3><p>Admins manage routines and members; everyone else just logs care. Kids can help without breaking things.</p></div>
+</div>
+</div></section>
+
+<section class="pricing" id="pricing"><div class="wrap">
+<h2>Honest pricing</h2>
+<p class="sub">Caring for a pet on your own? Penny is free — really free. Pay only when you want to share the load.</p>
+<div class="plans">
+<div class="card plan">
+<h3>Free</h3><p class="who">For a solo caretaker</p>
+<div class="price">$0 <small>forever</small></div>
+<ul>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Unlimited pets</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Meals, meds &amp; litter tracking</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>All smart reminders</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Offline-safe logging &amp; sync</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Full care history</li>
+</ul>
+</div>
+<div class="card plan hero-plan">
+<span class="flag">Best for families</span>
+<h3>Penny Household</h3><p class="who">For households that share the care</p>
+<div class="price">$39.99 <small>/ year</small></div>
+<p class="intro">First year $29.99</p>
+<p class="alt">or $5.99 / month</p>
+<ul>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Everything in Free</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Invite family members to your household</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Roles: admins &amp; members</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Updates when someone logs a task</li>
+<li><svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"></path></svg>Future premium features</li>
+</ul>
+</div>
+</div>
+<div class="joiners"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="15.5" rx="5" ry="4.2"></ellipse><circle cx="5.6" cy="10.7" r="2.1"></circle><circle cx="9.4" cy="7.1" r="2.1"></circle><circle cx="14.6" cy="7.1" r="2.1"></circle><circle cx="18.4" cy="10.7" r="2.1"></circle></svg><p><b>Joiners never pay.</b> Only the household owner subscribes — one plan covers everyone you invite, on their own devices, at no cost to them.</p></div>
+</div></section>
+
+<section class="faqteaser"><div class="wrap narrow">
+<h2>Quick questions</h2>
+<details class="faq"><summary>Is the free plan actually enough?<span class="chev"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"></path></svg></span></summary><div class="body"><p>Yes — if you&rsquo;re the only caretaker, it&rsquo;s the complete product: unlimited pets, all reminders, logging, offline sync, and full history. You only need Penny Household to share with others.</p></div></details>
+<details class="faq"><summary>Do the people I invite have to pay?<span class="chev"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"></path></svg></span></summary><div class="body"><p>No. Only the household owner subscribes, and that covers every member they invite.</p></div></details>
+<details class="faq"><summary>What if we lose signal?<span class="chev"><svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"></path></svg></span></summary><div class="body"><p>Penny works offline. Logs are saved on your device and sync automatically when you&rsquo;re back online — nothing gets lost.</p></div></details>
+<p class="more">More questions? <a href="support/">Visit Support &rarr;</a></p>
+</div></section>
+
+<section class="closing"><div class="wrap"><div class="inner">
+<h2>Bring the whole household in.</h2>
+<p>Set up your pets in a minute, invite the family, and never wonder &ldquo;did someone already feed her?&rdquo; again.</p>
+<a class="badge-appstore" href="#"><svg viewBox="0 0 24 24"><path d="M17.05 12.54c-.03-2.5 2.04-3.7 2.13-3.76-1.16-1.7-2.97-1.93-3.61-1.96-1.54-.16-3 .9-3.78.9-.78 0-1.98-.88-3.26-.86-1.68.03-3.22.98-4.08 2.48-1.74 3.02-.44 7.49 1.25 9.94.83 1.2 1.82 2.55 3.12 2.5 1.25-.05 1.72-.81 3.23-.81 1.51 0 1.93.81 3.25.79 1.35-.03 2.2-1.22 3.02-2.43.95-1.39 1.34-2.74 1.36-2.81-.03-.01-2.61-1-2.63-3.98zM14.56 4.9c.69-.83 1.15-1.99 1.02-3.15-.99.04-2.18.66-2.89 1.49-.63.73-1.19 1.91-1.04 3.04 1.1.09 2.23-.56 2.91-1.38z"></path></svg><span class="t"><small>Download on the</small><b>App Store</b></span></a>
+</div></div></section>
+
+<footer class="site-footer"><div class="wrap cols">
+<div><a class="brand" href="./"><span class="mark"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="15.5" rx="5" ry="4.2"></ellipse><circle cx="5.6" cy="10.7" r="2.1"></circle><circle cx="9.4" cy="7.1" r="2.1"></circle><circle cx="14.6" cy="7.1" r="2.1"></circle><circle cx="18.4" cy="10.7" r="2.1"></circle></svg></span>Penny</a><p class="tag">Pet care, together.</p></div>
+<nav><a href="support/">Support</a><a href="privacy/">Privacy Policy</a><a href="mailto:penny@pennytracker.pet">penny@pennytracker.pet</a></nav>
+</div></footer>
+</body>
+</html>
